@@ -1,5 +1,5 @@
 package main
-
+//Projecteuler.net problem 2
 import "fmt"
 
 func main() {
