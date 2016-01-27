@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoppinglist</title>
+</head>
+<body>
+
+<h1>{{.Num}} {{.Item}}</h1>
+
+{{if .StillNeed}}
+<h1>Not in shopping cart, please get {{.Num}} {{.Item}}!!!!</h1>
+{{else}}
+<h2>Already in shopping cart</h2>
+{{end}}
+</body>
+</html>
