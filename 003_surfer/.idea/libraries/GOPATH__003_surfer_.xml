@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;003_surfer&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../.." />
+    </CLASSES>
+    <SOURCES />
+    <excluded>
+      <root url="file://$PROJECT_DIR$/../../../c164s16/.git" />
+      <root url="file://$PROJECT_DIR$/../../helloworld/.idea" />
+      <root url="file://$PROJECT_DIR$/../../001_temp_cond_logic/.idea" />
+      <root url="file://$PROJECT_DIR$/../../../GoesToEleven/GolangTraining/.git" />
+      <root url="file://$PROJECT_DIR$/../../assign1/.idea" />
+      <root url="file://$PROJECT_DIR$/.idea" />
+      <root url="file://$PROJECT_DIR$/../../../nu7hatch/gouuid/.git" />
+      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$/../.git" />
+      <root url="file://$PROJECT_DIR$/../../.idea" />
+    </excluded>
+  </library>
+</component>

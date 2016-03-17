@@ -3,7 +3,7 @@
  with a UUID. The cookie should serve HttpOnly and you should have the 
  "Secure" flag set also though comment the "Secure" flag out as we're not 
  using https.
- Jairo Reyes
+ Jai
 *****************************************************************************/
 
 package main
@@ -23,7 +23,7 @@ type person struct {
 func main() {
 
 	p1 := person{
-			Name: "Jairo",
+			Name: "Jai",
 			Age: 21,
 		}
 

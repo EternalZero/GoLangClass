@@ -1,6 +1,6 @@
 /*************************************************************************
  PROJECT STEP 1 - create a web application that serves an HTML template.
- Jairo Reyes
+
 **************************************************************************/
 
 package main
@@ -19,7 +19,7 @@ type person struct {
 func main() {
 
 	p1 := person{
-			Name: "Jairo",
+			Name: "Jai",
 			Age: 21,
 		}
 

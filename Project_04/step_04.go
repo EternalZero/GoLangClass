@@ -5,7 +5,7 @@
  put those values from the form submission into the fields for that variable. 
  Marshal your variable of type "user"  to JSON. Encode that JSON to base64. 
  Store that value in the cookie.
- Jairo Reyes
+ Jai
 *******************************************************************************/
 
 package main
