@@ -1,6 +1,9 @@
 /*************************************************************************
  PROJECT STEP 1 - create a web application that serves an HTML template.
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 **************************************************************************/
 
 package main
