@@ -25,16 +25,17 @@ type User struct {
 	Age string
 	}
 	
-		
 func main() {
 
-		//parse template
+
+	http.HandleFunc("/",func(res http.ResponseWriter, req *http.Request) {
+	
+			//parse template
 		tpl, err := template.ParseFiles("form.gohtml")
 		if err != nil {
 			log.Fatalln(err)
 		}
 
-	http.HandleFunc("/",func(res http.ResponseWriter, req *http.Request) {
 		
 		person := User{
 			Name: req.FormValue("name"), 
@@ -53,64 +54,40 @@ func main() {
 			cookie = &http.Cookie{
 				Name: "session-fino",
 				Value: id.String() + "|" + getCode(id.String()) + "|"  + encode + "|" + getCode(encode),
-				MaxAge: 3600, 
 				//Secure: true,
 				HttpOnly: true,
 				}
 			http.SetCookie(res, cookie)
 		}
-		// Update Cookie
-		//cookie.Value = cookie.Value + "|" + encode + "|" + getCode(encode)
-		//http.SetCookie(res, cookie)
 		
 		res.Header().Set("Content-Type", "text/html; charset=utf-8")
 		cv := strings.Split(cookie.Value, "|")
 		orgUuid := cv[0]
 		orgCodeUuid := cv[1]
-		fmt.Print("cv[0] = ", cv[0], "\n")
-		fmt.Print("cv[1] = ", cv[1], "\n")
-		
 		if (getCode(orgUuid) == orgCodeUuid) {
 			fmt.Fprintf(res, "The uuid has not been tampered with.\n")
 		} else {
 			fmt.Fprintf(res,"The uuid has been changed.\n")
-
 		}
-		
-		// User changes uuid and resets cookie.
+
+		// User changes uuid.
 		temp := cv[0]+"123"
-		fmt.Print("temp = ", temp, "\n")
 		for i:=1; i < len(cv); i++ {
 			temp = temp + "|" + cv[i]
 		} 
-		fmt.Print("tempFinal = ", temp, "\n")
 		cookie.Value = temp
 		
-		////////////////////////////////////////////////////////////////////////////
-		
-		fmt.Print("cookie.Value = ", cookie.Value, "\n")  // cookie.Value is CORRECT HERE
-		http.SetCookie(res, cookie)  // This does NOT change cookie to have the new cookie.Value
-		
-		///////////////////////////////////////////////////////////////////////////
-		/*
-		cookieN, err := req.Cookie("session-fino")
-		fmt.Print("cookieN.Value = ", cookieN.Value, "\n")
-		dv := strings.Split(cookieN.Value, "|")
+		// cookie would be reset at this time (but is not done here).
+						
+		dv := strings.Split(cookie.Value, "|")
 		newUuid := dv[0]
-		fmt.Print("dv[0] = ", dv[0], "\n")
 		newCodeUuid := dv[1]
-		fmt.Print("dv[1] = ", dv[1], "\n")
 		if (getCode(newUuid) == newCodeUuid) {
 			fmt.Fprintf(res, "The uuid has not been tampered with.\n")
 		} else {
 			fmt.Fprintf(res,"The uuid has been changed.\n")
-
 		}
-		*/
 			
-			
-
-		
 		err = tpl.Execute(res,nil)
 		if err != nil {
 			log.Fatalln(err)
