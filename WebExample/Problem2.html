@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<script>
+
+document.writeln('<ul id="myUlList">');
+document.writeln("<li>First Item</li>");
+document.writeln("<li>Second Item</li>");
+document.writeln("<li>Third Item</li>");
+document.writeln("<li>Forth Item</li>");
+document.writeln("</ul>");
+
+listItems = document.getElementById('myUlList').getElementsByTagName('li');
+
+for (i = 0; i < listItems.length; i++) {
+  listItems[i].addEventListener('click', function() {window.alert(this.innerHTML);}, false);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+
+<body>
+<p id="randomText"></p>
+<script>
+x = 1;
+setInterval(function() {
+if (x == 0) {
+  document.body.style.backgroundImage = "url('2012_Ford_Mustang.jpg')";
+  x = 1;
+  }
+else {
+  document.body.style.backgroundImage = "url('1965_Ford_Mustang.jpg')";
+  x = 0;
+  }
+y = Math.random() * 10;
+if (y < 3)
+  document.getElementById("randomText").innerHTML = "This is Funny";
+else if (y < 7)
+  document.getElementById("randomText").innerHTML = "A random note to you";
+else
+  document.getElementById("randomText").innerHTML = "Do you like the picture?";
+},4000);
+</script>
+</body>
+</html>
